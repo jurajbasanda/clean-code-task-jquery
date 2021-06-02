@@ -32,7 +32,7 @@
             function festivalDaysCountdown(holidayDate,holidayName){
                 const today = new Date()
                 const daysUntil = parseInt((holidayDate - today) / (24 * 3600 * 1000))
-                listOfDays.append('<li>' + calculateDay(holidayDate).toString() + ' days until ' + holidayName + '</li>')   
+                listOfDays.append('<li>' + daysUntil.toString() + ' days until ' + holidayName + '</li>')   
                      }
 			
 			button.click(()=>festivalDaysCountdown(new Date(2021, 12, 25),'Christmas'))
