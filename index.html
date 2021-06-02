@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Clean code</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="script.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div>
+			<div>
+				<p>
+					This page should give you a count of the number of days from today to Christmas
+					Day, New Years Day and Valentines Day.
+				</p>
+			</div>
+
+			<div>
+				<ul id="days-until"></ul>
+			</div>
+
+			<div>
+				<button id="trigger">Show Days Until</button>
+			</div>
+		</div>
+		<script>
+			const button = $('#trigger')
+			const listOfDays = $('#days-until')
+			const today = new Date()
+			// All celebration days
+			const celebrationDays = [
+				{ name: 'Christmas', day: new Date(2021, 12, 25) },
+				{ name: 'New Year', day: new Date(2022, 01, 01) },
+				{ name: 'Valentines Day', day: new Date(2022, 02, 14) },
+			]
+
+			function calculateDay(dayTo) {
+				return parseInt((dayTo - today) / (24 * 3600 * 1000))
+			}
+
+			button.click(function () {
+				//Loop through days and show them
+				let i
+				for (i = 0; i < celebrationDays.length; i++) {
+					listOfDays.append(
+						'<li>' +
+							calculateDay(celebrationDays[i].day).toString() +
+							' days until ' +
+							celebrationDays[i].name +
+							'</li>'
+					)
+				}
+			})
+		</script>
+	</body>
+</html>
