@@ -28,17 +28,18 @@
 		<script>
 			const button = $('#trigger')
 			const listOfDays = $('#days-until')
-			
-            function festivalDaysCountdown(holidayDate,holidayName){
-                const today = new Date()
-                const daysUntil = parseInt((holidayDate - today) / (24 * 3600 * 1000))
-                listOfDays.append('<li>' + daysUntil.toString() + ' days until ' + holidayName + '</li>')   
-                     }
-			
-			button.click(()=>festivalDaysCountdown(new Date(2021, 12, 25),'Christmas'))
-			button.click(()=>festivalDaysCountdown(new Date(2022, 01, 01),'New Year'))
-			button.click(()=>festivalDaysCountdown(new Date(2022, 02, 14),'Valentines Day'))
 
+			function festivalDaysCountdown(holidayDate, holidayName) {
+				const today = new Date()
+				const daysUntil = parseInt((holidayDate - today) / (24 * 3600 * 1000))
+				listOfDays.append(
+					'<li>' + daysUntil.toString() + ' days until ' + holidayName + '</li>'
+				)
+			}
+
+			button.click(() => festivalDaysCountdown(new Date(2021, 12, 25), 'Christmas'))
+			button.click(() => festivalDaysCountdown(new Date(2022, 01, 01), 'New Year'))
+			button.click(() => festivalDaysCountdown(new Date(2022, 02, 14), 'Valentines Day'))
 		</script>
 	</body>
 </html>
